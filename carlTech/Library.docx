@@ -142,5 +142,6 @@ $git push -d <origin url> <branch> : for remote repository
  
 $git branch -d <branch_name> : local branches
 
+$git update-index --assume-unchanged "repository/filename" :(git assume , for when you want to ignore a file where you don't want it to be added for staging)
 
-
+git update-index --no-assume-unchanged "somewhere/environment.ts": this is used when you want to undo the action
