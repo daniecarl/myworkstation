@@ -1,0 +1,147 @@
+$WHY LEARN GIT
+******************
+-Git is a version control software that makes it possible for large amounts of files and folders to be shared and used amongst programmers. 
+-Google drive is also able to do this but git is more convinient, easy, efficient, and puts everyone on the same page.
+
+$INIT
+************
+Initializes git repository
+~Command--> git init
+ 
+$STATUS
+************
+It shows you what haven't saved in your git repository
+~Command--> git status
+
+$CREATING NEW FILE
+********************
+To create a new empty file.
+~Command--> >trial.txt
+
+$NEW FILE WITH A MESSAGE
+***************************
+~Command--> echo "This is a git file">trial.txt
+With this the message (i.e This is a git file is already stored in the file)
+
+$ADD
+*************
+This is used to add specific modified files in the current working directory to the staging area(where the staging area is the queue of files to be committed) 
+to tell git which files are going to be a part of the next commit.
+So for instance let say you have a file called trial.txt
+~Command--> git add trial.txt
+
+$ADD .(FOR MULTIPLE FILES)
+**************************
+Adds all the changes done in a working directory
+This command tells git to only look for changed or modified files in the current directory 
+~Command--> git add .
+
+$COMMIT
+************
+It saves and records the changes made to your repository
+It also takes snapshots of the current staged changes.
+NB: You have to commit before you push
+~Command--> git commit -m "initial commit" (initial commit because it tells the new changes in the repository)
+
+$BRANCH
+*************
+As you progress with git and start working on big projects, there are some changes you would like to make to your codes and there are others you would like to keep because they work.
+in order to do this you have to create a branch With working with branches you are able to easily revert back to the original codes if you make a change or mistake which which would destruct your work.
+When a branch is created it contains codes of the main branch as well as it's own codes, after you're satisfied
+you can add the branch to the main or master branch
+~Command--> git branch <branch name>
+
+~Command --> git branch 
+provides you with all the available branches that exist with the master branch being highlighted by default with an asterisk
+
+$CHECKOUT 
+******************
+Allows you to switch from one branch to another branch
+After this the targeted branch is now highlighted
+~Command--> git checkout <branch name>
+
+NB: You can create a new branch and switch right into it using a more simple and faster way
+~Command--> git checkout -b <new branch name here>
+
+$MERGING
+**************
+With this command we are able to merge other branches to the parent or main branch.
+Use git checkout to switch to the branch you want to merge into.
+This branch is typically the main or master branch. 
+Next, use git merge and specify the name of the other branch to bring into this branch.
+~Command--> git merge<branch name> 
+
+$DELETING
+************
+With this command we can delete any branch that is no longer needed provided we have arleady checked out of it
+~Command--> git branch -d <branch name>
+OR
+~Command--> git branch <branch name> -D 
+This command force deletes the branch when it doesn't want to work due to conflicts such as not committing files
+
+$LOGS
+************
+Keeps every instance where you committed a file. It also has the commit ID together with the time stamps of each commit command
+~Command--> git log 
+
+$REVERTING 
+*************
+with git revert you'll be able to revert back to the previous state of the changed file
+but before doing this make sure to use the git log command, then use the revert command
+~Command--> git revert <command ID>
+
+$HIDE FILES & FOLDER
+*************************
+It is a file that allows you to hide files in your repository can't view them incase they have access to your repository
+To do that create a file named .gitignore
+After creating the file input the names of the files and folders you would like to keep hidden
+NB: For folders start with a "/" followed by the name of the folder but for files you have to input just its name
+
+$CACHE DELETION
+*******************
+Assume we want to hide a file that is already on your repository , and stop it from being track
+You can use the following 
+~Commands--> git rm --cached <file name here> 
+Now add the remove files name to the .gitignore file
+This would prevent it from being tracked and add it to the gitignore file
+
+$UPLOADING OR PUSHING
+**********************
+It is used to upload your files from a local repository to a remote repository
+Create the repository on git and use the command below
+~Command--> git remote add origin <url of the repository>.git, then
+~Command--> git push origin master (since we are on the master branch or whatever name you used for your parent branch)
+Input your password when asked
+
+$PULLING
+**************
+There are times where you are required to continue working from an already existing repository and this can be done with one simple command
+~Command--> git pull
+This is used to fetch and download content from a remote repository and immediately update the local repository to match that content
+It also provides a list of all the branches from the remote repository
+
+$CLONING
+**************
+Assume you have a link from a repository that belongs to you or someone else,
+you can either download the files as a zip file or use 
+~Command--> git clone <input the repository url here>
+This command creates and downloads the repository unto your computer
+
+Other Commands
+$ git log --oneline --decorate
+this shows a pointer which tells you branch you're currently on. It also makes git to the branch you're currently
+
+$git push -u origin master / main depends on what the name of your parent branch is, works like 
+$git push origin main /master
+
+$rm -rf <directory>, : use this if you're tryna remove an empty directory 
+instead of rmdir -r/ rmdir -p since you'll encounter an error due to it being empty
+
+$git push -d <origin/remote_url> <branch> : used to remove a remote repository 
+$git push -d <origin url> <branch> : for remote repository
+ 
+$git branch -d <branch_name> : local branches
+
+$git update-index --assume-unchanged "repository/filename" :(git assume , for when you want to ignore a file where you don't want it to be added for staging)
+
+git update-index --no-assume-unchanged "somewhere/environment.ts": this is used when you want to undo the action
